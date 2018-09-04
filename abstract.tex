@@ -1,35 +1,35 @@
-\documentclass[paper=letter, fontsize=10pt]{scrartcl}
+\documentclass[paper=letter, fontsize=11pt]{scrartcl}
 
 \usepackage{geometry}
 \usepackage[T1]{fontenc}
+\usepackage{graphicx}
 \usepackage[utf8]{inputenc}
-\usepackage[english, spanish]{babel}
+\usepackage[spanish, english]{babel}
 \usepackage{hyperref}
-%% \usepackage[superscript,biblabel]{cite}
 \usepackage[backend=bibtex, style=trad-abbrv]{biblatex}
 \usepackage{sectsty}
 
 \addbibresource{bibliography.bib}
 
 \geometry{
-  top=1cm,
-  right=2cm,
-  left=2cm,
-  bottom=1cm
+  top=1in,
+  right=1in,
+  left=1in,
+  bottom=1in
 }
 
 \allsectionsfont{\raggedright\large \textit\normalfont\scshape\emph}
 
 \title{
   \normalsize
-  UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\\
-  Facultad de Ciencias\\
-  Licenciatura en Ciencias de la Computación
+  Latinx in AI Coalition at NIPS 2018
 }
 
-\subtitle{\normalsize Propuesta de Tesis de Licenciatura}
+\subtitle{\normalsize Abstract Submission}
 
-\author{\normalsize Albert Manuel Orozco Camacho}
+\author{\normalsize Albert Manuel Orozco Camacho
+        \footnote{Facultad de Ciencias,
+        Universidad Nacional Autónoma de México (\emph{UNAM})}}
 
 \date{\normalsize \today}
 
@@ -37,84 +37,55 @@
 
 \maketitle
 
-\section*{Título}
+\section*{Title}
 
 \noindent
-\emph{\textbf{Generación automática de memes de Internet a través de una red neuronal profunda}}
+\emph{\textbf{Challenges in Automatic Meme Generation Using Deep Neural Networks}}
 
-\section*{Director de Tesis}
-
-\thispagestyle{empty}
-\noindent
-Dr. Ivan Vladimir Meza Ruiz\\
-Departamento de Ciencias de la Computación\\
-Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas (\emph{IIMAS})\\
-Universidad Nacional Autónoma de México (\emph{UNAM})\\
-\texttt{\href{mailto:ivanvladimir@turing.iimas.unam.mx}{ivanvladimir@turing.iimas.unam.mx}}
-
-\section*{Introducción}
+\section*{Abstract}
 
 \noindent
-Se le llama \emph{\textbf{meme de Internet}} a la unidad de propagación de información vía electrónica,\
-que muchas veces utiliza bromas, chistes y/o rumores en su estructura\cite{shifman2014}.\
-La exorbitante popularidad del Internet ha permitido el crecimiento del uso de memes,\
-en particular, con el formato de imagen y leyenda corta. El problema de la generación automática de\
-memes de Internet ha sido escasamente estudiado dentro de las disciplinas del procesamiento de\
-lenguaje natural y visión computacional.\par
-En este trabajo, se abordará dicho problema mediante el uso de aprendizaje profundo, una rama\
-del aprendizaje automático que ha redefinido el \emph{estado del arte} de diversas tareas en inteligencia artificial.\
-Se recolectará una gran cantidad de memes de Internet, separando la imagen de su leyenda y priorizando\
-el modelo que predomina en el sitio web \texttt{MemeGenerator.net}\footnote{\url{https://memegenerator.net/}}.\
-Partiendo de un conjunto de $100$ imágenes con $1500$ leyendas cada una, equivalentes a $5$ GB de información,\
-se entrenará una red neuronal profunda. Para la implementación, se utilizarán primordialmente las bibliotecas\
-\texttt{Tensorflow}\cite{tensorflow2015-whitepaper} y \texttt{Keras}\cite{chollet2015keras} que funcionan\
-para el lenguaje de programación Python.\par
-El desempeño de la misma será evaluado por su capacidad de generar una leyenda para una imagen no perteneciente al conjunto de\
-datos de entrenamiento y qué tanto \emph{sentido} tiene el meme generado desde una perspectiva empírica.\par
-El uso de memes como vía de comunicación ha incrementado durante los últimos años, tanto así que ya es\
-parte del recurso periodístico que diversos medios ofrecen. Un sistema de generación automática de memes\
-promete ser de gran utilidad en una era en la cual la información fluye de manera rápida y breve, a través\
-de las redes sociales.
+Today's Internet is full of \textbf{memes}: small chunks of data which represent a large proportion\
+of a social network's communication ``protocol''. As coined by Dawkins in his 1976 book\
+\emph{``The Selfish Gene''} \cite{dawkins2006}, the meme is the fundamental building-block of information whose behavior seems very likely to that of a gene (\emph{better} memes tend to prevail longer in the Internet).\
+Also, there is an evolution mechanism that allows older memes to adapt to current trends.\par
+In this project, the problem of learning representations from a meme dataset and immediately generating new\
+data is studied, as a basis to motivate the further study of memes using \emph{state-of-the-art} machine\
+learning methods. In particular, we develop a deep neural architecture which attempts to learn a language\
+model out of a dataset of plain meme images along with several associated captions.\par
+Much of deep learning's success is justified by the outstanding performance of Vinyals', \textit{et al},\
+\textbf{Show-and-Tell model} \cite{DBLP:journals/corr/VinyalsTBE14}. We report experiments directly\
+using such model, in comparison with a proposed model that uses a \emph{more shallow} convolutional network.
 
-\section*{Objetivos}
+\begin{figure}[h]
+    \centering
+    \begin{minipage}[l]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{img/meme2.jpg}
+    \end{minipage}\hfill
+    \begin{minipage}[r]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{img/meme3.jpg}
+    \end{minipage}\hfill
+    \begin{minipage}[r]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{img/meme4.jpg}
+    \end{minipage}\hfill
+    \begin{minipage}[r]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{img/meme6.jpg}
+    \end{minipage}
+	\caption{
+        Meme examples. Most of them were 
+        popular between 2009 and 2013, yet some of them have evolved!
+        (Image taken from \url{https://memegenerator.net}.)
+    }
+    \label{fig1}
+\end{figure}
+As pointed out by Figure \ref{fig1}, we choose to start with memes that mainly consist on an\
+image centered on a main character and a caption. We, finally, report some evaluation measurements\
+to analyze our architecture's performance.\par
+This project is meant to be presented as an undergraduate thesis, under the supervision of\
+\href{http://turing.iimas.unam.mx/~ivanvladimir/}{Dr Ivan Vladimir Meza Ruiz}.
 
-\noindent
-Diseñar e implementar un sistema computacional que sea capaz de extraer las características más importantes\
-que relacionan una imagen con su leyenda en un meme, utilizando herramientas de aprendizaje profundo. A partir\
-de lo anterior, dada una imagen desconocida por el sistema, producir la leyenda que más haga sentido para formar\
-un meme, con los conceptos (características) aprendidos en el primer paso.
 
-\section*{Metas}
+%% \nocite{*}
+\printbibliography[title={Bibliography}]
 
-\begin{itemize}
-\item Recolectar una importante cantidad de memes de internet, clasificándolos por idioma.\
-  La mayor parte de dicho conjunto de datos será para entrenar a la red neuronal que se desarrollará,\
-  ¿mientras que la otra será para evaluar el desempeño de la misma?.
-\item Extraer la leyenda (texto) de cada imagen, de manera que ambas partes queden separadas\
-  pero sin perder su asociación.
-\item Diseñar e implementar la red neuronal profunda que extraerá las principales características de cada imagen\
-  y su leyenda asociada.
-\item Implementar un mecanismo para digitalizar las imágenes y que la red neuronal sea capaz de trabajar\
-  con éstas y sus leyendas asociadas.
-\item Entrenar la red neuronal con el conjunto de datos recolectado de Internet.
-\item Evaluar el desempeño de la salida de la red, asociando imagen con leyenda.
-\end{itemize}
-
-\section*{Estructura de la Tesis}
-
-\begin{enumerate}
-\item Introducción
-\item Marco teórico
-\item Red neuronal para descripciones de memes
-\item Evaluación del desempeño de la red
-\item Conclusiones
-\end{enumerate}
-
-\nocite{*}
-\printbibliography[title={Propuesta de bibliografía}]
-
-%% \begin{thebibliography}{99}
-%% \bibitem{Shifman} Shifman, L. (2013), Memes in a Digital World: Reconciling with a Conceptual Troublemaker.\
-%%   J Comput-Mediat Comm, 18: 362–377. doi:10.1111/jcc4.12013
-%% \end{thebibliography}
 \end{document}
